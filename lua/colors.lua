@@ -7,6 +7,7 @@ augroup Colors
     au ColorScheme * hi CursorLineNR guifg=#FFba00 guibg=#1f2335
     au ColorScheme * hi TabLine guifg=#7aa2f7 guibg=#343455
     au ColorScheme * hi ColorColumn guibg=#1f2335
+    au ColorScheme * hi Search guibg=yellow guifg=black
 
     " PLUGIN RELATED
     " "dense-analysis/ale"
@@ -15,13 +16,11 @@ augroup Colors
     au ColorScheme * hi link ALEWarningSign TSWarning
     au ColorScheme * hi link ALEWarningLine ErrorMsg
 
-    " "easymotion/vim-easymotion"
-    au ColorScheme * hi link EasyMotionTarget Todo
-    au ColorScheme * hi link EasyMotionShade CursorLine
-    au ColorScheme * hi link EasyMotionTarget2First MatchParen
-    au ColorScheme * hi link EasyMotionTarget2Second MatchParen
-    au ColorScheme * hi link EasyMotionMoveHL Search
-    au ColorScheme * hi link EasyMotionIncSearch Search
+    " "phaazon/hop.nvim"
+    au ColorScheme * hi HopNextKey guibg=yellow guifg=black
+    au ColorScheme * hi HopNextKey1 guibg=yellow guifg=black
+    au ColorScheme * hi HopNextKey2 guibg=yellow guifg=black
+    au ColorScheme * hi HopUnmatched guifg=gray
 
     " "dstein64/nvim-scrollview"
     au ColorScheme * hi  ScrollView guibg=yellow

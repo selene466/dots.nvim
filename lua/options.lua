@@ -174,9 +174,6 @@ g.ale_lint_on_text_changed = 0
 g.ale_sign_error = ">>"
 g.ale_sign_warning = "!!"
 
--- "easymotion/vim-easymotion"
-g.EasyMotion_do_shade = 1
-
 -- "jiangmiao/auto-pairs"
 g.AutoPairs = {
     ["("] = ")",

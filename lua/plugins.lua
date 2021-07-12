@@ -35,7 +35,7 @@ packer.startup(
         use "Yggdroot/indentLine"
         use "alvan/vim-closetag"
         use "bitc/vim-bad-whitespace"
-        use "easymotion/vim-easymotion"
+        use "phaazon/hop.nvim"
         use "jiangmiao/auto-pairs"
         use "mattn/emmet-vim"
         use "tpope/vim-commentary"
