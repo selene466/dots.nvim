@@ -20,6 +20,7 @@ let g:loaded_spec         = 1
 runtime! lua/plugins.lua
 runtime! lua/options.lua
 runtime! lua/keymaps.lua
+runtime! lua/colors.lua
 
 " "kabouzeid/nvim-lspinstall"
 " prevent LSP to autostart, unless I need it

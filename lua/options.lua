@@ -87,7 +87,7 @@ vim.cmd('au fileType vim setlocal commentstring=\\"\\ %s')
 
 -- PLUGIN RELATED
 -- "treesitter", builtin neovim 0.5 release
-require 'nvim-treesitter.configs'.setup {
+require "nvim-treesitter.configs".setup {
     highlight = {
         enable = true,
         disable = {},
@@ -141,7 +141,8 @@ require "compe".setup {
         min_width = 60,
         max_height = math.floor(vim.o.lines * 0.3),
         min_height = 1
-    },
+    };
+
     source = {
         path = true,
         buffer = true,
@@ -172,19 +173,9 @@ g.ale_linters = {python = {"flake8"}, html = {"htmlhint"}}
 g.ale_lint_on_text_changed = 0
 g.ale_sign_error = ">>"
 g.ale_sign_warning = "!!"
-vim.cmd("hi link ALEErrorSign TSDanger")
-vim.cmd("hi link ALEErrorLine ErrorMsg")
-vim.cmd("hi link ALEWarningSign TSWarning")
-vim.cmd("hi link ALEWarningLine ErrorMsg")
 
 -- "easymotion/vim-easymotion"
 g.EasyMotion_do_shade = 1
-vim.cmd("hi link EasyMotionTarget Visual")
-vim.cmd("hi link EasyMotionShade  PmenuSel")
-vim.cmd("hi link EasyMotionTarget2First  MatchParen")
-vim.cmd("hi link EasyMotionTarget2Second MatchParen")
-vim.cmd("hi link EasyMotionMoveHL    Search")
-vim.cmd("hi link EasyMotionIncSearch Search")
 
 -- "jiangmiao/auto-pairs"
 g.AutoPairs = {
@@ -311,3 +302,6 @@ require "lualine".setup {
 
 -- "kevinhwang91/rnvimr"
 g.rnvimr_enable_picker = 1
+
+-- "folke/which-key.nvim"
+require "which-key".setup()
