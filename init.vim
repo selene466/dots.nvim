@@ -17,12 +17,12 @@ let g:loaded_matchparen   = 1
 let g:loaded_spec         = 1
 
 " RUNTIME
-" lua require('plugins')
 runtime! lua/plugins.lua
 runtime! lua/options.lua
 runtime! lua/keymaps.lua
 
 " "kabouzeid/nvim-lspinstall"
+" prevent LSP to autostart, unless I need it
 function! LSPP()
 lua << EOF
     require "lspinstall".setup() -- important

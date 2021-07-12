@@ -19,7 +19,6 @@ packer.init(
 packer.startup(
     function()
         local use = use
-        use "nvim-treesitter/nvim-treesitter"
 
         -- colorscheme
         use "folke/tokyonight.nvim"

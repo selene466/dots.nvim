@@ -123,23 +123,23 @@ key_mapper("t", "}}", "<C-\\><C-n>", {silent = true})
 key_mapper("t", "<M-c>", "<C-\\><C-n>", {silent = true})
 
 -- PLUGIN RELATED
--- dense-analysis/ale
+-- "dense-analysis/ale"
 key_mapper("n", "]a", ":ALENextWrap<CR>")
 key_mapper("n", "[a", ":ALEPreviousWrap<CR>")
 key_mapper("n", "]A", ":ALELast<CR>")
 key_mapper("n", "[A", ":ALEFirst<CR>")
 
--- easymotion/vim-easymotion
+-- "easymotion/vim-easymotion"
 key_mapper("", "<leader><leader>.", "<Plug>(easymotion-repeat)")
 key_mapper("", "<leader>s", "<Plug>(easymotion-overwin-f)")
 key_mapper("", "<leader><leader>l", "<Plug>(easymotion-overwin-line)")
 key_mapper("", "<leader><leader>w", "<Plug>(easymotion-overwin-w)")
 key_mapper("", "<leader>/", "<Plug>(easymotion-overwin-f2)")
 
--- Yggdroot/indentLine
+-- "Yggdroot/indentLine"
 key_mapper("", "<leader><leader>i", ":IndentLinesToggle<CR>")
 
--- voldikss/vim-floaterm
+-- "voldikss/vim-floaterm"
 key_mapper("i", "<F1>", "<Esc>:FloatermToggle<CR>", {silent = true})
 key_mapper("n", "tr", ":FloatermToggle<CR>", {silent = true})
 key_mapper("n", "tp", ":vnew<CR>:term<CR>", {silent = true})

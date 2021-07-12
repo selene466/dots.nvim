@@ -58,7 +58,6 @@ o.cmdheight = 1
 o.updatetime = 1000
 o.timeoutlen = 800
 o.backspace = "indent,eol,start"
--- o.completeopt = {"menuone", "noselect"}
 o.completeopt = {
     "menu",
     "menuone",
@@ -87,7 +86,33 @@ vim.cmd("au fileType sh setlocal commentstring=#\\ %s")
 vim.cmd('au fileType vim setlocal commentstring=\\"\\ %s')
 
 -- PLUGIN RELATED
--- folke/tokyonight.nvim
+-- "treesitter", builtin neovim 0.5 release
+require 'nvim-treesitter.configs'.setup {
+    highlight = {
+        enable = true,
+        disable = {},
+    },
+    indent = {
+        enable = false,
+        disable = {}
+    },
+    ensure_installed = {
+        "c",
+        "cpp",
+        "css",
+        "html",
+        "java",
+        "javascript",
+        "json",
+        "php",
+        "python",
+        "scss",
+        "toml",
+        "yaml",
+    }
+}
+
+-- "folke/tokyonight.nvim"
 g.tokyonight_style = "night"
 g.tokyonight_terminal_colors = 1
 g.tokyonight_transparent = 1
@@ -95,7 +120,7 @@ g.tokyonight_hide_inactive_statusline = 1
 g.tokyonight_colors = {comment = "yellow"}
 g.tokyonight_lualine_bold = true
 
--- hrsh7th/nvim-compe
+-- "hrsh7th/nvim-compe"
 require "compe".setup {
     enabled = true,
     autocomplete = true,
@@ -129,20 +154,20 @@ require "compe".setup {
     }
 }
 
--- 'norcalli/nvim-colorizer.lua'
+-- "norcalli/nvim-colorizer.lua"
 require "colorizer".setup()
 
--- 'Yggdroot/indentLine'
+-- "Yggdroot/indentLine"
 g.indentLine_color_term = 239
 g.indentLine_color_gui = "#FF5555"
 g.indentLine_char_list = {"▕", "┊", "┊", "┊", "┊"}
 g.indentLine_leadingSpaceEnabled = 0
 g.indentLine_leadingSpaceChar = "."
 
--- 'alvan/vim-closetag'
+-- "alvan/vim-closetag"
 g.closetag_xhtml_filetypes = "html, phtml, php"
 
--- 'dense-analysis/ale'
+-- "dense-analysis/ale"
 g.ale_linters = {python = {"flake8"}, html = {"htmlhint"}}
 g.ale_lint_on_text_changed = 0
 g.ale_sign_error = ">>"
@@ -152,7 +177,7 @@ vim.cmd("hi link ALEErrorLine ErrorMsg")
 vim.cmd("hi link ALEWarningSign TSWarning")
 vim.cmd("hi link ALEWarningLine ErrorMsg")
 
--- 'easymotion/vim-easymotion'
+-- "easymotion/vim-easymotion"
 g.EasyMotion_do_shade = 1
 vim.cmd("hi link EasyMotionTarget Visual")
 vim.cmd("hi link EasyMotionShade  PmenuSel")
@@ -176,16 +201,16 @@ g.AutoPairs = {
     ["<?php"] = "?>"
 }
 
--- 'SirVer/ultisnips'
+-- "SirVer/ultisnips"
 g.UltiSnipsExpandTrigger = "<C-l>"
 g.UltiSnipsJumpForwardTrigger = "<Tab>"
 g.UltiSnipsJumpBackwardTrigger = "<S-Tab>"
 g.UltiSnipsRemoveSelectModeMappings = 0
 
--- 'mattn/emmet-vim'
+-- "mattn/emmet-vim"
 g.user_emmet_leader_key = "<C-c>"
 
--- 'voldikss/vim-floaterm'
+-- "voldikss/vim-floaterm"
 g.floaterm_keymap_toggle = "<F1>"
 g.floaterm_keymap_next = "<F2>"
 g.floaterm_keymap_prev = "<F3>"
@@ -200,16 +225,16 @@ g.floaterm_title = "Terminal: $1/$2"
 g.floaterm_autoclose = 1
 g.floaterm_borderchars = {"═", "║", "═", "║", "╔", "╗", "╝", "╚"}
 
--- 'sbdchd/neoformat'
+-- "sbdchd/neoformat"
 g.neoformat_basic_format_retab = 1
 g.neoformat_basic_format_trim = 1
 g.neoformat_basic_format_align = 1
 
--- 'webdevel/tabulous'
+-- "webdevel/tabulous"
 g.tabulousLabelNameOptions = ":t"
 g.tabulousLabelNumberStr = ":"
 
--- 'hoob3rt/lualine.nvim'
+-- "hoob3rt/lualine.nvim"
 local Modem = {}
 Modem.map = {
     ["n"] = " N ",
