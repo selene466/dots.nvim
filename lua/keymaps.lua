@@ -8,7 +8,7 @@ local t = function(str)
     return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
 
-local check_back_space = function()
+local is_prior_char_whitespace = function()
     local col = vim.fn.col(".") - 1
     if col == 0 or vim.fn.getline("."):sub(col, col):match("%s") then
         return true
@@ -37,7 +37,7 @@ _G.shift_tab_completion = function()
     elseif vim.fn["UltiSnips#CanJumpBackwards"]() == 1 then
         return vim.api.nvim_replace_termcodes("<C-R>=UltiSnips#JumpBackwards()<CR>", true, true, true)
     else
-        return vim.api.nvim_replace_termcodes("<S-Tab>", true, true, true)
+        return vim.api.nvim_replace_termcodes("<Tab>", true, true, true)
     end
 end
 
