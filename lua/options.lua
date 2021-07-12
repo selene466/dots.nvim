@@ -284,8 +284,8 @@ require "lualine".setup {
         lualine_a = {"mode"},
         lualine_b = {"branch"},
         lualine_c = {{"filename", color = "TermCursorNC", upper = false}},
-        lualine_x = {{"encoding"}, {"fileformat", upper = false}, {"filetype", upper = false, color = "TermCursorNC"}},
-        lualine_y = {locations},
+        lualine_x = {{"encoding"}, {"fileformat", upper = false}, {"filetype", upper = false, color = "TabLineSel"}},
+        lualine_y = {{locations, color="WarningMsg"}},
         lualine_z = {modem_get_mode}
     },
     inactive_sections = {
