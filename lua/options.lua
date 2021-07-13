@@ -16,6 +16,9 @@ o.syntax = "on"
 o.clipboard = "unnamedplus"
 o.smarttab = true
 o.expandtab = true
+o.tabstop = 4
+o.softtabstop = 4
+o.shiftwidth = 4
 o.hlsearch = true
 o.incsearch = true
 o.ignorecase = true
@@ -67,24 +70,11 @@ o.cursorline = true
 o.list = true
 o.listchars = {tab = "»  ", trail = "·", precedes = "‹", extends = "›", eol = "←", nbsp = "␣"}
 
-if
-    vim.o.filetype == "html" or vim.o.filetype == "css" or vim.o.filetype == "yaml" or vim.o.filetype == "toml" or
-        vim.o.filetype == "markdown"
- then
-    o.tabstop = 2
-    o.softtabstop = 2
-    o.shiftwidth = 2
-else
-    o.tabstop = 4
-    o.softtabstop = 4
-    o.shiftwidth = 4
-end
-
-vim.cmd("colorscheme tokyonight")
-vim.cmd("filetype plugin indent off")
+vim.cmd("filetype plugin indent on")
 vim.cmd("let &showbreak = '>>> ↳ '")
 
 -- AUTOSTART
+vim.cmd("colorscheme tokyonight")
 vim.cmd("au TabLeave * let g:lasttab = tabpagenr()")
 vim.cmd("au TermOpen * setlocal nonumber norelativenumber")
 vim.cmd("au TermOpen * startinsert")
@@ -178,7 +168,26 @@ g.indentLine_leadingSpaceChar = "."
 g.closetag_xhtml_filetypes = "html, phtml, php"
 
 -- "dense-analysis/ale"
-g.ale_linters = {python = {"flake8"}, html = {"htmlhint"}}
+g.ale_linters = {
+    html = {"htmlhint"},
+    javascript = {"eslint"},
+    python = {"flake8"}
+}
+g.ale_fixers = {
+    c = {"clang-format"},
+    cpp = {"clang-format"},
+    css = {"prettier"},
+    html = {"prettier"},
+    java = {"clang-format"},
+    javascript = {"prettier"},
+    json = {"prettier"},
+    lua = {"luafmt"},
+    markdown = {"prettier"},
+    python = {"black"},
+    scss = {"prettier"},
+    yaml = {"prettier"}
+}
+g.ale_javascript_prettier_options = "--prose-wrap always"
 g.ale_lint_on_text_changed = 0
 g.ale_sign_error = ">>"
 g.ale_sign_warning = "!!"
@@ -221,11 +230,6 @@ g.floaterm_wintitle = 0
 g.floaterm_title = "Terminal: $1/$2"
 g.floaterm_autoclose = 1
 g.floaterm_borderchars = {"═", "║", "═", "║", "╔", "╗", "╝", "╚"}
-
--- "sbdchd/neoformat"
-g.neoformat_basic_format_retab = 1
-g.neoformat_basic_format_trim = 1
-g.neoformat_basic_format_align = 1
 
 -- "webdevel/tabulous"
 g.tabulousLabelNameOptions = ":t"

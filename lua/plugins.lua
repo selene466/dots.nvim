@@ -53,9 +53,6 @@ packer.startup(
         -- markdown preview cli
         use "npxbr/glow.nvim"
 
-        -- formatter
-        use "sbdchd/neoformat"
-
         -- misc
         use "webdevel/tabulous"
         use "psliwka/vim-smoothie"

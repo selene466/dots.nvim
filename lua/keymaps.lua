@@ -135,6 +135,7 @@ key_mapper("n", "]a", ":ALENextWrap<CR>")
 key_mapper("n", "[a", ":ALEPreviousWrap<CR>")
 key_mapper("n", "]A", ":ALELast<CR>")
 key_mapper("n", "[A", ":ALEFirst<CR>")
+key_mapper("n", "<leader><leader>f", ":ALEFix<CR>")
 
 -- "phaazon/hop.nvim"
 key_mapper("n", "<leader>/", ":HopPattern<CR>")
