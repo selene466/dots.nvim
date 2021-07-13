@@ -12,10 +12,8 @@ o.undofile = true
 
 o.relativenumber = true
 o.number = true
+o.syntax = "on"
 o.clipboard = "unnamedplus"
-o.tabstop = 4
-o.softtabstop = 4
-o.shiftwidth = 4
 o.smarttab = true
 o.expandtab = true
 o.hlsearch = true
@@ -69,6 +67,20 @@ o.cursorline = true
 o.list = true
 o.listchars = {tab = "»  ", trail = "·", precedes = "‹", extends = "›", eol = "←", nbsp = "␣"}
 
+if vim.o.filetype == "html" or vim.o.filetype == "css" or vim.o.filetype == "yaml" or vim.o.filetype == "toml"  or vim.o.filetype == "markdown" then
+    o.tabstop = 2
+    o.softtabstop = 2
+    o.shiftwidth = 2
+else
+    o.tabstop = 4
+    o.softtabstop = 4
+    o.shiftwidth = 4
+end
+
+if vim.api.nvim_eval('!exists("g:syntax_on")') then
+    o.syntax = "on"
+end
+
 vim.cmd("colorscheme tokyonight")
 vim.cmd("filetype plugin indent off")
 vim.cmd("let &showbreak = '>>> ↳ '")
@@ -90,7 +102,7 @@ vim.cmd('au fileType vim setlocal commentstring=\\"\\ %s')
 require "nvim-treesitter.configs".setup {
     highlight = {
         enable = true,
-        disable = {},
+        disable = {}
     },
     indent = {
         enable = false,
@@ -108,7 +120,7 @@ require "nvim-treesitter.configs".setup {
         "python",
         "scss",
         "toml",
-        "yaml",
+        "yaml"
     }
 }
 
@@ -141,8 +153,7 @@ require "compe".setup {
         min_width = 60,
         max_height = math.floor(vim.o.lines * 0.3),
         min_height = 1
-    };
-
+    },
     source = {
         path = true,
         buffer = true,
@@ -282,7 +293,7 @@ require "lualine".setup {
         lualine_b = {"branch"},
         lualine_c = {{"filename", color = "TermCursorNC", upper = false}},
         lualine_x = {{"encoding"}, {"fileformat", upper = false}, {"filetype", upper = false, color = "TabLineSel"}},
-        lualine_y = {{locations, color="WarningMsg"}},
+        lualine_y = {{locations, color = "WarningMsg"}},
         lualine_z = {modem_get_mode}
     },
     inactive_sections = {

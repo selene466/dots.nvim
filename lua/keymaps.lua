@@ -1,5 +1,9 @@
-local key_mapper = function(mode, key, result)
-    vim.api.nvim_set_keymap(mode, key, result, {noremap = true, silent = true})
+local key_mapper = function(mode, key, result, exp)
+    if exp == 1 then
+        vim.api.nvim_set_keymap(mode, key, result, {noremap = true, silent = true, expr = true})
+    else
+        vim.api.nvim_set_keymap(mode, key, result, {noremap = true, silent = true})
+    end
 end
 local vim = vim
 
@@ -41,15 +45,15 @@ _G.shift_tab_completion = function()
     end
 end
 
-vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_completion()", {expr = true})
-vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_completion()", {expr = true})
-vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.shift_tab_completion()", {expr = true})
-vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.shift_tab_completion()", {expr = true})
-vim.api.nvim_set_keymap("i", "<C-Space>", "compe#complete()", {expr = true, silent = true, noremap = true})
-vim.api.nvim_set_keymap("i", "<CR>", "compe#confirm('<CR>')", {expr = true, silent = true, noremap = true})
-vim.api.nvim_set_keymap("i", "<C-e>", "compe#close()", {expr = true, silent = true, noremap = true})
-vim.api.nvim_set_keymap("i", "<C-f>", "compe#scroll({ 'delta': +4 })", {expr = true, silent = true, noremap = true})
-vim.api.nvim_set_keymap("i", "<C-d>", "compe#scroll({ 'delta': -4 })", {expr = true, silent = true, noremap = true})
+key_mapper("i", "<Tab>", "v:lua.tab_completion()", 1)
+key_mapper("s", "<Tab>", "v:lua.tab_completion()", 1)
+key_mapper("i", "<S-Tab>", "v:lua.shift_tab_completion()", 1)
+key_mapper("s", "<S-Tab>", "v:lua.shift_tab_completion()", 1)
+key_mapper("i", "<C-Space>", "compe#complete()", 1)
+key_mapper("i", "<CR>", "compe#confirm('<CR>')", 1)
+key_mapper("i", "<C-e>", "compe#close()", 1)
+key_mapper("i", "<C-f>", "compe#scroll({ 'delta': +4 })", 1)
+key_mapper("i", "<C-d>", "compe#scroll({ 'delta': -4 })", 1)
 
 key_mapper("n", "<F5>", ":tabnext<CR>")
 key_mapper("i", "<F5>", "<Esc>:tabnext<CR>")
@@ -115,7 +119,7 @@ key_mapper("v", "J", ":m '>+1<CR>gv=gv")
 key_mapper("v", "K", ":m '<-2<CR>gv=gv")
 
 key_mapper("n", "<leader>b", ":ls<CR>:b<space>")
-key_mapper("n", "<leader>R", ":source $MYVIMRC<CR>")
+key_mapper("n", "<leader>r", ":source $MYVIMRC<CR>")
 
 key_mapper("n", "<C-q>", ":q!<CR>")
 key_mapper("i", "<C-q>", "<Esc>:q!<CR>")
