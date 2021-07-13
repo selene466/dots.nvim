@@ -67,7 +67,10 @@ o.cursorline = true
 o.list = true
 o.listchars = {tab = "»  ", trail = "·", precedes = "‹", extends = "›", eol = "←", nbsp = "␣"}
 
-if vim.o.filetype == "html" or vim.o.filetype == "css" or vim.o.filetype == "yaml" or vim.o.filetype == "toml"  or vim.o.filetype == "markdown" then
+if
+    vim.o.filetype == "html" or vim.o.filetype == "css" or vim.o.filetype == "yaml" or vim.o.filetype == "toml" or
+        vim.o.filetype == "markdown"
+ then
     o.tabstop = 2
     o.softtabstop = 2
     o.shiftwidth = 2
@@ -313,3 +316,6 @@ g.rnvimr_enable_picker = 1
 
 -- "folke/which-key.nvim"
 require "which-key".setup()
+
+-- "lewis6991/gitsigns.nvim"
+require "gitsigns".setup()

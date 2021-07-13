@@ -45,6 +45,8 @@ packer.startup(
         use "michaeljsmith/vim-indent-object"
         use "kevinhwang91/rnvimr"
         use "nvim-treesitter/nvim-treesitter"
+        use "nvim-lua/plenary.nvim"
+        use "lewis6991/gitsigns.nvim"
 
         -- markdown preview cli
         use "npxbr/glow.nvim"
