@@ -158,7 +158,7 @@ key_mapper("t", "::", "<C-\\><C-n>:FloatermToggle<CR>")
 -- "kevinhwang91/rnvimr"
 key_mapper("n", "<leader>o", ":RnvimrToggle<CR>")
 key_mapper("n", "<leader>o", "<C-\\><C-n>:RnvimrToggle<CR>")
-key_mapper("t", "<C-o>", "<C-\\><C-n>:RnvimrResize<CR>")
+key_mapper("t", "<M-o>", "<C-\\><C-n>:RnvimrResize<CR>")
 
 -- "lewis6991/gitsigns.nvim"
 key_mapper("n", "]h", ":Gitsigns next_hunk<CR>")
