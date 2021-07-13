@@ -80,17 +80,12 @@ else
     o.shiftwidth = 4
 end
 
-if vim.api.nvim_eval('!exists("g:syntax_on")') then
-    o.syntax = "on"
-end
-
 vim.cmd("colorscheme tokyonight")
 vim.cmd("filetype plugin indent off")
 vim.cmd("let &showbreak = '>>> ↳ '")
 
 -- AUTOSTART
 vim.cmd("au TabLeave * let g:lasttab = tabpagenr()")
-vim.cmd("au filetype html,css,yaml,markdown setlocal tabstop=2 softtabstop=2 shiftwidth=2")
 vim.cmd("au TermOpen * setlocal nonumber norelativenumber")
 vim.cmd("au TermOpen * startinsert")
 vim.cmd("au fileType lua setlocal commentstring=--\\ %s")
