@@ -19,6 +19,8 @@ packer.init(
 packer.startup(
     function()
         local use = use
+        -- Packer optional plugin
+        use {"wbthomason/packer.nvim", opt = true}
 
         -- colorscheme
         use "folke/tokyonight.nvim"
