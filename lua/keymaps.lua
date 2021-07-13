@@ -161,4 +161,4 @@ key_mapper("t", "<C-o>", "<C-\\><C-n>:RnvimrResize<CR>")
 
 -- "lewis6991/gitsigns.nvim"
 key_mapper("n", "]h", ":Gitsigns next_hunk<CR>")
-key_mapper("n", "[h", ":Gitsigns prev<<CR>")
+key_mapper("n", "[h", ":Gitsigns prev_hunk<CR>")
