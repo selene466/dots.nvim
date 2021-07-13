@@ -86,7 +86,7 @@ vim.cmd("au fileType sh setlocal commentstring=#\\ %s")
 vim.cmd('au fileType vim setlocal commentstring=\\"\\ %s')
 
 -- PLUGIN RELATED
--- "treesitter", builtin neovim 0.5 release
+-- "nvim-treesitter/nvim-treesitter"
 require "nvim-treesitter.configs".setup {
     highlight = {
         enable = true,

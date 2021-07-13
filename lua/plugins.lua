@@ -44,6 +44,7 @@ packer.startup(
         use "preservim/tagbar"
         use "michaeljsmith/vim-indent-object"
         use "kevinhwang91/rnvimr"
+        use "nvim-treesitter/nvim-treesitter"
 
         -- markdown preview cli
         use "npxbr/glow.nvim"
