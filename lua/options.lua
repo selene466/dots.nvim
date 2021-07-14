@@ -99,7 +99,7 @@ g.loaded_matchparen = 1
 g.loaded_spec = 1
 
 vim.cmd([[filetype plugin indent on]])
-vim.cmd([[let &showbreak = '>>> ↳ ']])
+vim.cmd([[let &showbreak = '>>>   ']])
 
 -----------------------------------------------------
 -- AUTOSTART

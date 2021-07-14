@@ -117,6 +117,13 @@ key_mapper("", "<leader><Tab>", ":wincmd p<CR>")
 key_mapper("", "<leader>z", ":wincmd _<Enter><Esc>:wincmd \\|<CR>")
 key_mapper("", "<leader>a", ":wincmd =<CR>")
 
+key_mapper("n", "<Up>", "gk")
+key_mapper("n", "<Down>", "gj")
+key_mapper("n", "<S-Up>", "B")
+key_mapper("n", "<S-Right>", "g$")
+key_mapper("n", "<S-Left>", "g0")
+key_mapper("n", "<S-Down>", "W")
+
 key_mapper("v", "<", "<gv")
 key_mapper("v", ">", ">gv")
 key_mapper("v", "<C-j>", ":m '>+1<CR>gv=gv")
