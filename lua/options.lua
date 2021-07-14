@@ -217,6 +217,7 @@ g.indentLine_color_gui = "#FF5555"
 g.indentLine_color_term = 239
 g.indentLine_leadingSpaceChar = "."
 g.indentLine_leadingSpaceEnabled = 0
+vim.cmd([[au TermOpen * exe ":IndentLinesDisable"]])
 
 -- "alvan/vim-closetag"
 g.closetag_xhtml_filetypes = "html, phtml, php"
