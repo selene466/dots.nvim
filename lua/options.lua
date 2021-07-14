@@ -102,19 +102,20 @@ vim.cmd([[filetype plugin indent on]])
 vim.cmd([[let &showbreak = '>>>   ']])
 
 -----------------------------------------------------
--- AUTOSTART
+-- AUTOCMD
 -----------------------------------------------------
-vim.cmd("colorscheme tokyonight")
-vim.cmd("au TabLeave * let g:lasttab = tabpagenr()")
-vim.cmd("au TermOpen * setlocal nonumber norelativenumber")
-vim.cmd("au TermOpen * startinsert")
-vim.cmd("au fileType lua setlocal commentstring=--\\ %s")
-vim.cmd("au fileType html setlocal commentstring=<!--\\ %s\\ -->")
-vim.cmd("au fileType python setlocal commentstring=#\\ %s")
-vim.cmd("au fileType php setlocal commentstring=//\\ %s")
-vim.cmd("au fileType sh setlocal commentstring=#\\ %s")
-vim.cmd('au fileType vim setlocal commentstring=\\"\\ %s')
-vim.cmd("au BufEnter * set fo-=c fo-=r fo-=o")
+vim.cmd([[colorscheme tokyonight]])
+vim.cmd([[au BufEnter * set fo-=c fo-=r fo-=o]])
+vim.cmd([[au TermOpen * setlocal nonumber norelativenumber]])
+vim.cmd([[au TermOpen * startinsert]])
+vim.cmd([[au TermOpen * exe ":IndentLinesDisable"]])
+vim.cmd([[au TabLeave * let g:lasttab = tabpagenr()]])
+vim.cmd([[au fileType lua setlocal commentstring=--\ %s]])
+vim.cmd([[au fileType html setlocal commentstring=<!--\ %s\ -->]])
+vim.cmd([[au fileType python setlocal commentstring=#\ %s]])
+vim.cmd([[au fileType php setlocal commentstring=//\ %s]])
+vim.cmd([[au fileType sh setlocal commentstring=#\ %s]])
+vim.cmd([[au fileType vim setlocal commentstring=\"\ %s]])
 
 -----------------------------------------------------
 -- PLUGIN RELATED
@@ -217,7 +218,6 @@ g.indentLine_color_gui = "#FF5555"
 g.indentLine_color_term = 239
 g.indentLine_leadingSpaceChar = "."
 g.indentLine_leadingSpaceEnabled = 0
-vim.cmd([[au TermOpen * exe ":IndentLinesDisable"]])
 
 -- "alvan/vim-closetag"
 g.closetag_xhtml_filetypes = "html, phtml, php"
