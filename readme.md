@@ -30,4 +30,4 @@ Check the rest at [lua/keymaps.lua](https://github.com/selene466/dots.nvim/blob/
 ### Plugin Used
 
 Check [here](https://github.com/selene466/dots.nvim/blob/master/lua/plugins.lua).  
-Check [plugin related config](https://github.com/selene466/dots.nvim/blob/master/lua/options.lua#L120).
+Check [plugin related config](https://github.com/selene466/dots.nvim/blob/master/lua/options.lua#L122).

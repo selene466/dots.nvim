@@ -106,6 +106,7 @@ vim.cmd([[let &showbreak = '>>>   ']])
 -----------------------------------------------------
 vim.cmd([[colorscheme tokyonight]])
 vim.cmd([[au BufEnter * set fo-=c fo-=r fo-=o]])
+vim.cmd([[au BufEnter * if &l:buftype ==# 'nofile' | exe ":IndentLinesDisable" | endif]])
 vim.cmd([[au TermOpen * setlocal nonumber norelativenumber]])
 vim.cmd([[au TermOpen * startinsert]])
 vim.cmd([[au TermOpen * exe ":IndentLinesDisable"]])
