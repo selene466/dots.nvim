@@ -1,13 +1,13 @@
 local vim = vim
 local execute = vim.api.nvim_command
 local fn = vim.fn
--- ensure that packer is installed
+
 local install_path = fn.stdpath("data") .. "/site/pack/packer/opt/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
-    execute("!git clone https://github.com/wbthomason/packer.nvim " .. install_path)
-    execute "packadd packer.nvim"
+    execute([[!git clone https://github.com/wbthomason/packer.nvim ]] .. install_path)
+    execute([[packadd packer.nvim]])
 end
-vim.cmd("packadd packer.nvim")
+vim.cmd([[packadd packer.nvim]])
 local packer = require "packer"
 local util = require "packer.util"
 packer.init(
@@ -15,11 +15,14 @@ packer.init(
         package_root = util.join_paths(vim.fn.stdpath("data"), "site", "pack")
     }
 )
---- startup and add configure plugins
+
+-----------------------------------------------------
+--- Startup plugins
+-----------------------------------------------------
 packer.startup(
     function()
         local use = use
-        -- Packer optional plugin
+        -- packer as an optional plugin
         use {"wbthomason/packer.nvim", opt = true}
 
         -- colorscheme
@@ -50,7 +53,7 @@ packer.startup(
         use "nvim-lua/plenary.nvim"
         use "lewis6991/gitsigns.nvim"
 
-        -- markdown preview cli
+        -- markdown preview
         use "npxbr/glow.nvim"
 
         -- misc

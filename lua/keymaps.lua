@@ -7,7 +7,9 @@ local key_mapper = function(mode, key, result, exp)
 end
 local vim = vim
 
--- completion tab
+-----------------------------------------------------
+-- nvim-compe completion tab with UltiSnips
+-----------------------------------------------------
 local t = function(str)
     return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
@@ -54,6 +56,8 @@ key_mapper("i", "<CR>", "compe#confirm('<CR>')", 1)
 key_mapper("i", "<C-e>", "compe#close()", 1)
 key_mapper("i", "<C-f>", "compe#scroll({ 'delta': +4 })", 1)
 key_mapper("i", "<C-d>", "compe#scroll({ 'delta': -4 })", 1)
+
+-----------------------------------------------------
 
 key_mapper("n", "<F5>", ":tabnext<CR>")
 key_mapper("i", "<F5>", "<Esc>:tabnext<CR>")
@@ -115,8 +119,8 @@ key_mapper("", "<leader>a", ":wincmd =<CR>")
 
 key_mapper("v", "<", "<gv")
 key_mapper("v", ">", ">gv")
-key_mapper("v", "J", ":m '>+1<CR>gv=gv")
-key_mapper("v", "K", ":m '<-2<CR>gv=gv")
+key_mapper("v", "<C-j>", ":m '>+1<CR>gv=gv")
+key_mapper("v", "<C-k>", ":m '<-2<CR>gv=gv")
 
 key_mapper("n", "<leader>b", ":ls<CR>:b<space>")
 key_mapper("n", "<leader>r", ":source $MYVIMRC<CR>")
@@ -126,10 +130,11 @@ key_mapper("i", "<C-q>", "<Esc>:q!<CR>")
 key_mapper("n", "<C-s>", ":update<CR>")
 key_mapper("i", "<C-s>", "<Esc>:update<CR>")
 
-key_mapper("t", "}}", "<C-\\><C-n>")
 key_mapper("t", "<M-c>", "<C-\\><C-n>")
 
+-----------------------------------------------------
 -- PLUGIN RELATED
+-----------------------------------------------------
 -- "dense-analysis/ale"
 key_mapper("n", "]a", ":ALENextWrap<CR>")
 key_mapper("n", "[a", ":ALEPreviousWrap<CR>")
@@ -162,3 +167,4 @@ key_mapper("t", "<M-o>", "<C-\\><C-n>:RnvimrResize<CR>")
 -- "lewis6991/gitsigns.nvim"
 key_mapper("n", "]h", ":Gitsigns next_hunk<CR>")
 key_mapper("n", "[h", ":Gitsigns prev_hunk<CR>")
+key_mapper("n", "<leader><leader>h", ":Gitsigns preview_hunk<CR>")

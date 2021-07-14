@@ -1,6 +1,15 @@
 local o = vim.opt
 local g = vim.g
 
+-----------------------------------------------------
+-- Map leader key to space
+-----------------------------------------------------
+g.mapleader = " "
+g.maplocalleader = " "
+
+-----------------------------------------------------
+-- Options
+-----------------------------------------------------
 o.wfw = true
 o.equalalways = false
 o.backup = false
@@ -68,12 +77,33 @@ o.completeopt = {
 
 o.cursorline = true
 o.list = true
-o.listchars = {tab = "»  ", trail = "·", precedes = "‹", extends = "›", eol = "←", nbsp = "␣"}
+o.listchars = {
+    tab = "»  ",
+    trail = "·",
+    precedes = "‹",
+    extends = "›",
+    eol = "←",
+    nbsp = "␣"
+}
 
-vim.cmd("filetype plugin indent on")
-vim.cmd("let &showbreak = '>>> ↳ '")
+-- disable builtin plugins I don't use
+g.loaded_gzip = 1
+g.loaded_tar = 1
+g.loaded_tarPlugin = 1
+g.loaded_zipPlugin = 1
+g.loaded_2html_plugin = 1
+g.loaded_netrw = 1
+g.loaded_netrwPlugin = 1
+g.loaded_matchit = 1
+g.loaded_matchparen = 1
+g.loaded_spec = 1
 
+vim.cmd([[filetype plugin indent on]])
+vim.cmd([[let &showbreak = '>>> ↳ ']])
+
+-----------------------------------------------------
 -- AUTOSTART
+-----------------------------------------------------
 vim.cmd("colorscheme tokyonight")
 vim.cmd("au TabLeave * let g:lasttab = tabpagenr()")
 vim.cmd("au TermOpen * setlocal nonumber norelativenumber")
@@ -84,8 +114,11 @@ vim.cmd("au fileType python setlocal commentstring=#\\ %s")
 vim.cmd("au fileType php setlocal commentstring=//\\ %s")
 vim.cmd("au fileType sh setlocal commentstring=#\\ %s")
 vim.cmd('au fileType vim setlocal commentstring=\\"\\ %s')
+vim.cmd("au BufEnter * set fo-=c fo-=r fo-=o")
 
+-----------------------------------------------------
 -- PLUGIN RELATED
+-----------------------------------------------------
 -- "nvim-treesitter/nvim-treesitter"
 require "nvim-treesitter.configs".setup {
     highlight = {
@@ -126,43 +159,64 @@ require "compe".setup {
     autocomplete = true,
     debug = false,
     min_length = 1,
-    preselect = "enable",
-    throttle_time = 80,
-    source_timeout = 200,
-    resolve_timeout = 800,
     incomplete_delay = 400,
     max_abbr_width = 100,
     max_kind_width = 100,
     max_menu_width = 100,
+    preselect = "enable",
+    resolve_timeout = 800,
+    source_timeout = 200,
+    throttle_time = 80,
     documentation = {
         border = {"", "", "", " ", "", "", "", " "}, -- the border option is the same as `|help nvim_open_win|`
-        winhighlight = "NormalFloat:CompeDocumentation,FloatBorder:CompeDocumentationBorder",
-        max_width = 120,
-        min_width = 60,
         max_height = math.floor(vim.o.lines * 0.3),
-        min_height = 1
+        max_width = 120,
+        min_height = 1,
+        min_width = 60,
+        winhighlight = "NormalFloat:CompeDocumentation,FloatBorder:CompeDocumentationBorder"
     },
     source = {
-        path = true,
         buffer = true,
         calc = true,
+        luasnip = false,
         nvim_lsp = true,
         nvim_lua = true,
-        vsnip = false,
+        path = true,
         ultisnips = true,
-        luasnip = false
+        vsnip = false
     }
 }
+-- "kabouzeid/nvim-lspinstall"
+-- prevent LSP to autostart, unless I need it
+-- start with ":Lspp"
+vim.api.nvim_exec(
+    [[
+function! LSPP()
+lua << EOF
+    require "lspinstall".setup() -- important
+
+    local servers = require "lspinstall".installed_servers()
+    for _, server in pairs(servers) do
+        require "lspconfig"[server].setup {}
+    end
+EOF
+  exe ":LspStart"
+endfunction
+
+command Lspp :call LSPP()
+]],
+    true
+)
 
 -- "norcalli/nvim-colorizer.lua"
 require "colorizer".setup()
 
 -- "Yggdroot/indentLine"
-g.indentLine_color_term = 239
-g.indentLine_color_gui = "#FF5555"
 g.indentLine_char_list = {"▕", "┊", "┊", "┊", "┊"}
-g.indentLine_leadingSpaceEnabled = 0
+g.indentLine_color_gui = "#FF5555"
+g.indentLine_color_term = 239
 g.indentLine_leadingSpaceChar = "."
+g.indentLine_leadingSpaceEnabled = 0
 
 -- "alvan/vim-closetag"
 g.closetag_xhtml_filetypes = "html, phtml, php"
@@ -209,27 +263,27 @@ g.AutoPairs = {
 
 -- "SirVer/ultisnips"
 g.UltiSnipsExpandTrigger = "<C-l>"
-g.UltiSnipsJumpForwardTrigger = "<Tab>"
 g.UltiSnipsJumpBackwardTrigger = "<S-Tab>"
+g.UltiSnipsJumpForwardTrigger = "<Tab>"
 g.UltiSnipsRemoveSelectModeMappings = 0
 
 -- "mattn/emmet-vim"
 g.user_emmet_leader_key = "<C-c>"
 
 -- "voldikss/vim-floaterm"
+g.floaterm_autoclose = 1
+g.floaterm_autohide = 0
+g.floaterm_autoinsert = 1
+g.floaterm_borderchars = {"═", "║", "═", "║", "╔", "╗", "╝", "╚"}
+g.floaterm_gitcommit = "floaterm"
 g.floaterm_keymap_toggle = "<F1>"
 g.floaterm_keymap_next = "<F2>"
 g.floaterm_keymap_prev = "<F3>"
 g.floaterm_keymap_new = "<F4>"
-g.floaterm_gitcommit = "floaterm"
-g.floaterm_autoinsert = 1
-g.floaterm_autohide = 0
+g.floaterm_title = "Terminal: $1/$2"
+g.floaterm_wintitle = 0
 g.floaterm_width = 0.8
 g.floaterm_height = 0.8
-g.floaterm_wintitle = 0
-g.floaterm_title = "Terminal: $1/$2"
-g.floaterm_autoclose = 1
-g.floaterm_borderchars = {"═", "║", "═", "║", "╔", "╗", "╝", "╚"}
 
 -- "webdevel/tabulous"
 g.tabulousLabelNameOptions = ":t"
@@ -282,19 +336,23 @@ end
 
 require "lualine".setup {
     options = {
-        icons_enabled = false,
-        theme = "tokyonight",
-        component_separators = {"", ""},
-        section_separators = {"", ""},
-        upper = true,
         color = {},
-        disabled_filetypes = {}
+        component_separators = {"", ""},
+        disabled_filetypes = {},
+        icons_enabled = false,
+        section_separators = {"", ""},
+        theme = "tokyonight",
+        upper = true
     },
     sections = {
         lualine_a = {"mode"},
         lualine_b = {"branch"},
         lualine_c = {{"filename", color = "TermCursorNC", upper = false}},
-        lualine_x = {{"encoding"}, {"fileformat", upper = false}, {"filetype", upper = false, color = "TabLineSel"}},
+        lualine_x = {
+            {"encoding"},
+            {"fileformat", upper = false},
+            {"filetype", upper = false, color = "TabLineSel"}
+        },
         lualine_y = {{locations, color = "WarningMsg"}},
         lualine_z = {modem_get_mode}
     },

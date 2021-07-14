@@ -9,7 +9,9 @@ augroup Colors
     au ColorScheme * hi ColorColumn guibg=#1f2335
     au ColorScheme * hi Search guibg=yellow guifg=black
 
+    " --------------------------------------------------
     " PLUGIN RELATED
+    " --------------------------------------------------
     " "dense-analysis/ale"
     au ColorScheme * hi link ALEErrorSign TSDanger
     au ColorScheme * hi link ALEErrorLine ErrorMsg
