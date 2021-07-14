@@ -11,13 +11,13 @@ dotfiles neovim
 Backup your current neovim configuration:
 
 ```
-$ mv ~/.config/nvim ~/.config/nvim_backup
+mv ~/.config/nvim ~/.config/nvim_backup
 ```
 
 Clone this repo:
 
 ```
-$ git clone https://github.com/selene466/dots.nvim ~/.config/nvim
+git clone https://github.com/selene466/dots.nvim ~/.config/nvim
 ```
 
 Then run ":PackerSync" from within neovim.
