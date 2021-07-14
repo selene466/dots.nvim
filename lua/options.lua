@@ -188,6 +188,7 @@ require "compe".setup {
         vsnip = false
     }
 }
+
 -- "kabouzeid/nvim-lspinstall"
 -- prevent LSP to autostart, unless I need it
 -- start with ":Lspp"
@@ -324,6 +325,7 @@ Modem.map = {
     ["!"] = " S ",
     ["t"] = " T "
 }
+
 function modem_get_mode()
     local modem_code = vim.api.nvim_get_mode().mode
     if Modem.map[mode_code] == nil then
@@ -344,19 +346,18 @@ require "lualine".setup {
         icons_enabled = false,
         section_separators = {"", ""},
         theme = "tokyonight",
-        upper = true
     },
     sections = {
-        lualine_a = {"mode"},
+        lualine_a = {{"mode", upper = true}},
         lualine_b = {"branch"},
-        lualine_c = {{"filename", color = "TermCursorNC", upper = false}},
+        lualine_c = {{"filename", color = "TermCursorNC"}},
         lualine_x = {
             {"encoding"},
-            {"fileformat", upper = false},
-            {"filetype", upper = false, color = "TabLineSel"}
+            {"fileformat"},
+            {"filetype", color = "TabLineSel"}
         },
         lualine_y = {{locations, color = "WarningMsg"}},
-        lualine_z = {modem_get_mode}
+        lualine_z = {{modem_get_mode, upper = true}}
     },
     inactive_sections = {
         lualine_a = {},
