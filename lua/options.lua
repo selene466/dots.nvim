@@ -127,6 +127,9 @@ require "nvim-treesitter.configs".setup {
         enable = true,
         disable = {}
     },
+    matchup = {
+        enable = true
+    },
     indent = {
         enable = false,
         disable = {}
@@ -345,7 +348,7 @@ require "lualine".setup {
         disabled_filetypes = {},
         icons_enabled = false,
         section_separators = {"", ""},
-        theme = "tokyonight",
+        theme = "tokyonight"
     },
     sections = {
         lualine_a = {{"mode", upper = true}},

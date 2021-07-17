@@ -8,6 +8,7 @@ augroup Colors
     au ColorScheme * hi TabLine guifg=#7aa2f7 guibg=#343455
     au ColorScheme * hi ColorColumn guibg=#1f2335
     au ColorScheme * hi Search guibg=yellow guifg=black
+    au ColorScheme * hi MatchParen gui=bold guibg=yellow guifg=black
 
     " --------------------------------------------------
     " PLUGIN RELATED

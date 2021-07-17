@@ -52,6 +52,7 @@ packer.startup(
         use "nvim-treesitter/nvim-treesitter"
         use "nvim-lua/plenary.nvim"
         use "lewis6991/gitsigns.nvim"
+        use "andymass/vim-matchup"
 
         -- markdown preview
         use "npxbr/glow.nvim"
