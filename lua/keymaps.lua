@@ -143,10 +143,10 @@ key_mapper("t", "<M-c>", "<C-\\><C-n>")
 -- PLUGIN RELATED
 -----------------------------------------------------
 -- "dense-analysis/ale"
-key_mapper("n", "]a", ":ALENextWrap<CR>")
-key_mapper("n", "[a", ":ALEPreviousWrap<CR>")
-key_mapper("n", "]A", ":ALELast<CR>")
-key_mapper("n", "[A", ":ALEFirst<CR>")
+key_mapper("n", "[a", ":ALENextWrap<CR>")
+key_mapper("n", "]a", ":ALEPreviousWrap<CR>")
+key_mapper("n", "[A", ":ALELast<CR>")
+key_mapper("n", "]A", ":ALEFirst<CR>")
 key_mapper("n", "<leader><leader>f", ":ALEFix<CR>")
 
 -- "phaazon/hop.nvim"
@@ -172,6 +172,6 @@ key_mapper("n", "<leader>o", ":RnvimrToggle<CR>")
 key_mapper("t", "<M-o>", "<C-\\><C-n>:RnvimrResize<CR>")
 
 -- "lewis6991/gitsigns.nvim"
-key_mapper("n", "]h", ":Gitsigns next_hunk<CR>")
-key_mapper("n", "[h", ":Gitsigns prev_hunk<CR>")
+key_mapper("n", "[h", ":Gitsigns next_hunk<CR>")
+key_mapper("n", "]h", ":Gitsigns prev_hunk<CR>")
 key_mapper("n", "<leader><leader>h", ":Gitsigns preview_hunk<CR>")
