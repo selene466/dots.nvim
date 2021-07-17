@@ -8,7 +8,6 @@ augroup Colors
     au ColorScheme * hi TabLine guifg=#7aa2f7 guibg=#343455
     au ColorScheme * hi ColorColumn guibg=#1f2335
     au ColorScheme * hi Search guibg=yellow guifg=black
-    au ColorScheme * hi MatchParen gui=bold guibg=yellow guifg=black
 
     " --------------------------------------------------
     " PLUGIN RELATED
@@ -31,6 +30,11 @@ augroup Colors
     " "voldikss/vim-floaterm"
     au ColorScheme * hi Floaterm guibg=none
     au ColorScheme * hi FloatermBorder guibg=none guifg=cyan
+
+    " "andymass/vim-matchup"
+    au ColorScheme * hi MatchParen gui=bold guibg=yellow guifg=black
+    au ColorScheme * hi MatchWord gui=bold guibg=brown guifg=white
+    au ColorScheme * hi MatchWordCur guibg=yellow guifg=black
 
 augroup END
 ]],

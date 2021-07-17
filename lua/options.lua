@@ -382,3 +382,6 @@ require "which-key".setup()
 
 -- "lewis6991/gitsigns.nvim"
 require "gitsigns".setup()
+
+-- "andymass/vim-matchup"
+g.matchup_matchparen_deferred = 1
