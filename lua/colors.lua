@@ -4,7 +4,7 @@ augroup Colors
     au!
     " override
     au ColorScheme * hi LineNr guifg=#5081c0
-    au ColorScheme * hi CursorLineNR guifg=#FFba00 guibg=#1f2335
+    au ColorScheme * hi CursorLineNR gui=bold guifg=#FFba00 guibg=#1f2335
     au ColorScheme * hi TabLine guifg=#7aa2f7 guibg=#343455
     au ColorScheme * hi ColorColumn guibg=#1f2335
     au ColorScheme * hi Search guibg=yellow guifg=black
