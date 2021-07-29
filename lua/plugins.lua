@@ -37,10 +37,27 @@ packer.startup(
 
         -- QOL
         use "norcalli/nvim-colorizer.lua"
-        use "Yggdroot/indentLine"
-        use "alvan/vim-closetag"
-        use "bitc/vim-bad-whitespace"
-        use "phaazon/hop.nvim"
+        use {
+            "Yggdroot/indentLine",
+            event = "BufReadPre"
+        }
+        use {
+            "alvan/vim-closetag",
+            event = "BufReadPre"
+        }
+        use {
+            "bitc/vim-bad-whitespace",
+            event = "BufReadPre"
+        }
+        use {
+            "phaazon/hop.nvim",
+            cmd = {
+                "HopPattern",
+                "HopLine",
+                "HopChar1",
+                "HopWord"
+            }
+        }
         use "jiangmiao/auto-pairs"
         use "mattn/emmet-vim"
         use "tpope/vim-commentary"
