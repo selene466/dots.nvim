@@ -87,16 +87,26 @@ o.listchars = {
 }
 
 -- disable builtin plugins I don't use
-g.loaded_gzip = 1
-g.loaded_tar = 1
-g.loaded_tarPlugin = 1
-g.loaded_zipPlugin = 1
 g.loaded_2html_plugin = 1
-g.loaded_netrw = 1
-g.loaded_netrwPlugin = 1
+g.loaded_getscript = 1
+g.loaded_getscriptPlugin = 1
+g.loaded_gzip = 1
+g.loaded_logiPat = 1
 g.loaded_matchit = 1
 g.loaded_matchparen = 1
+g.loaded_netrw = 1
+g.loaded_netrwFileHandlers = 1
+g.loaded_netrwPlugin = 1
+g.loaded_netrwSettings = 1
+g.loaded_rrhelper = 1
 g.loaded_spec = 1
+g.loaded_tar = 1
+g.loaded_tarPlugin = 1
+g.loaded_vimball = 1
+g.loaded_vimballPlugin = 1
+g.loaded_zip = 1
+g.loaded_zipPlugin = 1
+g.no_gitrebase_maps = 1
 
 vim.cmd([[filetype plugin indent on]])
 vim.cmd([[let &showbreak = '>>>   ']])
@@ -109,10 +119,10 @@ vim.cmd([[au BufEnter * set fo-=c fo-=r fo-=o]])
 vim.cmd([[au BufEnter * if &l:buftype ==# 'nofile' | exe ":IndentLinesDisable" | endif]])
 vim.cmd([[au TermOpen * setlocal nonumber norelativenumber]])
 vim.cmd([[au TermOpen * startinsert]])
-vim.cmd([[au TermOpen * exe ":IndentLinesDisable"]])
+vim.cmd([[au TermOpen * IndentLinesDisable]])
 vim.cmd([[au TabLeave * let g:lasttab = tabpagenr()]])
 vim.cmd([[au fileType lua setlocal commentstring=--\ %s]])
-vim.cmd([[au fileType html setlocal commentstring=<!--\ %s\ -->]])
+vim.cmd([[au fileType html setlocal commentstring=<!--\ %s\ --> | EmmetInstall]])
 vim.cmd([[au fileType python setlocal commentstring=#\ %s]])
 vim.cmd([[au fileType php setlocal commentstring=//\ %s]])
 vim.cmd([[au fileType sh setlocal commentstring=#\ %s]])
@@ -274,6 +284,7 @@ g.UltiSnipsJumpForwardTrigger = "<Tab>"
 g.UltiSnipsRemoveSelectModeMappings = 0
 
 -- "mattn/emmet-vim"
+g.user_emmet_install_global = 0
 g.user_emmet_leader_key = "<C-c>"
 
 -- "voldikss/vim-floaterm"
@@ -386,4 +397,4 @@ require "gitsigns".setup()
 -- "andymass/vim-matchup"
 g.matchup_matchparen_deferred = 1
 g.matchup_matchparen_hi_surround_always = 1
-g.matchup_matchparen_offscreen = {method= 'popup'}
+g.matchup_matchparen_offscreen = {method = "popup"}

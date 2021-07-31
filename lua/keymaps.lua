@@ -168,8 +168,8 @@ key_mapper("t", ";;", "<C-c><C-c><C-\\><C-n>:FloatermToggle<CR>")
 key_mapper("t", "::", "<C-\\><C-n>:FloatermToggle<CR>")
 
 -- "kevinhwang91/rnvimr"
-key_mapper("n", "<leader>o", ":RnvimrToggle<CR>")
-key_mapper("t", "<leader>o", "<C-\\><C-n>:RnvimrToggle<CR>")
+key_mapper("n", "<leader><leader>o", ":RnvimrToggle<CR>")
+key_mapper("t", "<leader><leader>o", "<C-\\><C-n>:RnvimrToggle<CR>")
 key_mapper("t", "<M-o>", "<C-\\><C-n>:RnvimrResize<CR>")
 
 -- "lewis6991/gitsigns.nvim"

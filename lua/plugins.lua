@@ -63,16 +63,31 @@ packer.startup(
         use "tpope/vim-commentary"
         use "tpope/vim-surround"
         use "voldikss/vim-floaterm"
-        use "preservim/tagbar"
+        use {
+            "preservim/tagbar",
+            cmd = {
+                "Tagbar"
+            }
+        }
         use "michaeljsmith/vim-indent-object"
-        use "kevinhwang91/rnvimr"
+        use {
+            "kevinhwang91/rnvimr",
+            cmd = {
+                "RnvimrToggle"
+            }
+        }
         use "nvim-treesitter/nvim-treesitter"
         use "nvim-lua/plenary.nvim"
         use "lewis6991/gitsigns.nvim"
         use "andymass/vim-matchup"
 
         -- markdown preview
-        use "npxbr/glow.nvim"
+        use {
+            "npxbr/glow.nvim",
+            cmd = {
+                "Glow"
+            }
+        }
 
         -- misc
         use "webdevel/tabulous"
