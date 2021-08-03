@@ -18,6 +18,7 @@ o.showmode = false
 o.compatible = false
 o.swapfile = false
 o.undofile = true
+o.shadafile = "NONE"
 
 o.relativenumber = true
 o.number = true
@@ -398,3 +399,6 @@ require "gitsigns".setup()
 g.matchup_matchparen_deferred = 1
 g.matchup_matchparen_hi_surround_always = 1
 g.matchup_matchparen_offscreen = {method = "popup"}
+
+-- "preservim/tagbar"
+g.tagbar_wrap = 1

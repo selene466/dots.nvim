@@ -95,6 +95,7 @@ packer.startup(
         use "dstein64/nvim-scrollview"
         use "folke/which-key.nvim"
         use "hoob3rt/lualine.nvim"
+        use "dstein64/vim-startuptime"
 
         -- ALE
         use "dense-analysis/ale"
